@@ -17,27 +17,6 @@ public class Question {
 
     public Question(){
         questions = new ArrayList<>();
-    }
-
-
-    public Question(String question, String firstAnswer, String secondAnswer, String thirdAnswer, String fourthAnswer) {
-        this.question = question;
-        this.firstAnswer = firstAnswer;
-        this.secondAnswer = secondAnswer;
-        this.thirdAnswer = thirdAnswer;
-        this.fourthAnswer = fourthAnswer;
-    }
-
-
-    public List<Question> getQuestions() {
-        return this.questions;
-    }
-
-    public void setQuestions(List<Question> questions) {
-        this.questions = questions;
-    }
-
-    public Set<String> getRightAnswers() {
         rightAnswers = new HashSet<>();
         rightAnswers.add("platform-independent programming language");
         rightAnswers.add("object-oriented language");        
@@ -65,8 +44,27 @@ public class Question {
         rightAnswers.add("String exists in a constant string pool, Builder and Buffer exist in stack");
         rightAnswers.add("Public - can be accessed anywhere, Private - only inside the class");
         rightAnswers.add("default - inside the package, protected - can be accessed outside the package by inheritance");
+    }
 
 
+    public Question(String question, String firstAnswer, String secondAnswer, String thirdAnswer, String fourthAnswer) {
+        this.question = question;
+        this.firstAnswer = firstAnswer;
+        this.secondAnswer = secondAnswer;
+        this.thirdAnswer = thirdAnswer;
+        this.fourthAnswer = fourthAnswer;
+    }
+
+
+    public List<Question> getQuestions() {
+        return this.questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
+    public Set<String> getRightAnswers() {
         return rightAnswers;
     }
 

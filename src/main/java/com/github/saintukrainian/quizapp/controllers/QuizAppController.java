@@ -77,7 +77,7 @@ public class QuizAppController {
         questionsData.setQuestions(list);
     }
 
-    @GetMapping("/")
+    @GetMapping("/quiz")
     public String home(Model model) {
         model.addAttribute("questionsData", questionsData.getQuestions());
         return "quiz";
