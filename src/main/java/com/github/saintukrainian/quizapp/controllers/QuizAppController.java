@@ -11,6 +11,8 @@ import com.github.saintukrainian.quizapp.helper.Calculate;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class QuizAppController {
     private Question questionsData;
+
+    @ExceptionHandler
+    public String handle(Exception e) {
+        return "error";
+    }
 
     @PostConstruct
     public void loadData() {
@@ -77,7 +84,7 @@ public class QuizAppController {
         questionsData.setQuestions(list);
     }
 
-    @GetMapping("/quiz")
+    @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("questionsData", questionsData.getQuestions());
         return "quiz";
@@ -85,7 +92,9 @@ public class QuizAppController {
 
     @PostMapping("/process")
     public String process(@RequestParam("answers") Set<String> usersAnswers, Model model) {
-
+        if(usersAnswers == null) {
+            return "redirect:/";
+        }
         System.out.println(usersAnswers);
         if(usersAnswers.size() < 20) {
             model.addAttribute("result", "You answered not enough!");
