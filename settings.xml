@@ -20,7 +20,7 @@
         <repository>
           <id>github</id>
           <name>GitHub SaintUkrainian Apache Maven Packages</name>
-          <url>https://maven.pkg.github.com/SaintUkrainian/quiz-app</url>
+          <url>https://maven.pkg.github.com/SaintUkrainian</url>
         </repository>
       </repositories>
     </profile>
