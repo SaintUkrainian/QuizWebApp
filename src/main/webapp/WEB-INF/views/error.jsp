@@ -6,6 +6,6 @@
     <title>Error</title>
 </head>
 <body>
-    <h1>It seems that you didn't answer to any question!</h1>
+    <h1>It seems that you didn't answer any question!</h1>
 </body>
 </html>

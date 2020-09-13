@@ -63,22 +63,22 @@ public class QuizAppController {
                 "i don't know"));
         list.add(new Question("#14) What is meant by Overloading?",
                 "it's is meant to create methods inside the class with the same signature but with different sets of params",
-                "answ2", "answ3", "i don't know"));
-        list.add(new Question("#15) What is meant by Interface?", "it's a set of instructions for class", "answ2",
-                "answ3", "i don't know"));
+                "Means to overload the JVM", "has the same meaning as overriding", "i don't know"));
+        list.add(new Question("#15) What is meant by Interface?", "it's a set of instructions for class", "it's a GUI",
+                "It's an app's interface", "i don't know"));
         list.add(new Question("#16) What is meant by Abstract class?",
-                "Abstract class is a class which describes entity", "answ2", "answ3", "i don't know"));
+                "Abstract class is a class which describes entity", "It's a class which describes behavior of entity", "It's a class which is used for calculations", "i don't know"));
         list.add(new Question("#17) Difference between Array and Array List.",
                 "Array - can't be resized dinamicly, ArrayList - can be", "answ2", "answ3", "i don't know"));
         list.add(new Question("#18) Difference between String, String Builder, and String Buffer.",
-                "String exists in a constant string pool, Builder and Buffer exist in stack", "answ2", "answ3",
+                "String exists in a constant string pool, Builder and Buffer exist in stack", "String is used for a string, Buffer and Builder for arrays", "Ther's no difference",
                 "i don't know"));
         list.add(new Question("#19) Explain about Public and Private access specifiers.",
-                "Public - can be accessed anywhere, Private - only inside the class", "answ2", "answ3",
+                "Public - can be accessed anywhere, Private - only inside the class", "Public - inside the package, Private - inside the class", "They are equal",
                 "i don't know"));
         list.add(new Question("#20) Difference between Default and Protected access specifiers.",
-                "default - inside the package, protected - can be accessed outside the package by inheritance", "answ2",
-                "answ3", "i don't know"));
+                "default - inside the package, protected - can be accessed outside the package by inheritance", "Default - anywhere, Protected - inside the class",
+                "They are equal", "i don't know"));
 
         questionsData.setQuestions(list);
     }
