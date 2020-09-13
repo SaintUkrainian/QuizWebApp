@@ -23,7 +23,7 @@
         <repository>
           <id>github</id>
           <name>GitHub SaintUkrainian Apache Maven Packages</name>
-          <url>https://maven.pkg.github.com/SaintUkrainian/quiz-app</url>
+          <url>https://maven.pkg.github.com/SaintUkrainian/QuizWebApp</url>
         </repository>
       </repositories>
     </profile>
@@ -33,7 +33,7 @@
     <server>
       <id>github</id>
       <username>SaintUkrainian</username>
-      <password>3efd1d7cbc59e54ef567559211ada7b2cc1e6cfc</password>
+      <password>ae0b8a169a34de8b52a3407fb673c08b1fb40aeb</password>
     </server>
   </servers>
 
