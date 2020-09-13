@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.github.saintukrainian</groupId>
 	<artifactId>quiz-app</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>quiz-app</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -102,7 +102,7 @@
 		<repository>
 		  <id>github</id>
 		  <name>GitHub Packages</name>
-		  <url>https://maven.pkg.github.com/SaintUkrainian</url>
+		  <url>https://maven.pkg.github.com/SaintUkrainian/quiz-app</url>
 		</repository>
 	</distributionManagement>
 
