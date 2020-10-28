@@ -12,7 +12,7 @@
 
 <body>
     <h1>
-        <security:authentication property="principal.username" />: ${result}
+        <security:authentication property="principal.username" />: ${result}% / 100%
     </h1>
 </body>
 

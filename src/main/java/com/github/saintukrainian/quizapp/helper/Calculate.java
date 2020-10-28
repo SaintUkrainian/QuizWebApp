@@ -5,16 +5,13 @@ import java.util.Set;
 public class Calculate {
 
     // getting the number of all wrong answers
-    public static boolean calculate(Set<String> rightAnswers, Set<String> usersAnswers) {
+    public static double calculate(Set<String> rightAnswers, Set<String> usersAnswers) {
         // removing all right answers
-        usersAnswers.removeAll(rightAnswers);
-        System.out.println(usersAnswers.size());
-        if (usersAnswers.size() >= 10) {
-            System.out.println(usersAnswers);
-            System.out.println("false");
-            return false;
-        }
-        return true;
+        usersAnswers.removeIf(answer -> !rightAnswers.contains(answer));
+        System.out.println("---------------------");
+        System.out.println(usersAnswers);
+        
+        return usersAnswers.size() * 100 / rightAnswers.size();
     }
 
 }

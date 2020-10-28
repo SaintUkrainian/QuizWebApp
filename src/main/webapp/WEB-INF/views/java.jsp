@@ -16,7 +16,8 @@
     
 </div>
 <form:form action="${pageContext.request.contextPath}/quiz/process" modelAttribute="usersAnswers" method="POST">
-    <c:forEach var="questionItem" items="${questionsData}">
+    <input type="hidden" name="name" value="${quiz.name}" />
+    <c:forEach var="questionItem" items="${quiz.questions}">
         <div class="full-container">
             <div class="question-container">
                 <h2>${questionItem.question}</h2>

@@ -1,5 +1,6 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,8 +26,11 @@
     <main>
         <h1>Select a Quiz!</h1>
         <ul class="quiz-items">
-           <li><a href="${pageContext.request.contextPath}/quiz/java">Java Basics Quiz</a></li> 
-           <li><a href="${pageContext.request.contextPath}/quiz/english">English Basics Quiz</a></li>
+           <!-- <li><a href="${pageContext.request.contextPath}/quiz/java">Java Basics Quiz</a></li> 
+           <li><a href="${pageContext.request.contextPath}/quiz/english">English Basics Quiz</a></li> -->
+           <c:forEach var="quiz" items="${quizes}">
+            <li><a href="${pageContext.request.contextPath}/quiz/${quiz.name}">${quiz.name} Basics Quiz</a></li>
+           </c:forEach>
         </ul>
     </main>
 
