@@ -6,7 +6,7 @@ import java.util.Set;
 
 import javax.annotation.PostConstruct;
 
-import com.github.saintukrainian.quizapp.entity.Question;
+import com.github.saintukrainian.quizapp.entities.Question;
 import com.github.saintukrainian.quizapp.helper.Calculate;
 
 import org.springframework.stereotype.Controller;
@@ -14,14 +14,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/quiz")
 public class QuizAppController {
     private Question questionsData;
 
     @ExceptionHandler
-    public String handle(Exception e) {
+    public String handle(RuntimeException e) {
         return "error";
     }
 
@@ -40,7 +42,7 @@ public class QuizAppController {
                 "it's a method for getting hash code of element", "it's a method for getting sum of elements",
                 "it's a method with a class name, which is used to create objects"));
         list.add(new Question("#6) What is meant by the Local variable and the Instance variable?",
-                "they are defined in method scope", "they are defined inside the class",
+                "local variable is defined inside a method scope, instance - inside the class", "they are defined inside the class",
                 "they are defined inside the package", "they are not defined"));
         list.add(new Question("#7) What is a Class?", "it's a template which describes object's behavior and state",
                 "it's a class at school", "it's an instance of object", "it's an object itself"));
@@ -69,7 +71,7 @@ public class QuizAppController {
         list.add(new Question("#16) What is meant by Abstract class?",
                 "Abstract class is a class which describes entity", "It's a class which describes behavior of entity", "It's a class which is used for calculations", "i don't know"));
         list.add(new Question("#17) Difference between Array and Array List.",
-                "Array - can't be resized dinamicly, ArrayList - can be", "answ2", "answ3", "i don't know"));
+                "Array - can't be resized dinamicly, ArrayList - can be", "Array is stored in stack, ArrayList - in heap", "They are equal", "i don't know"));
         list.add(new Question("#18) Difference between String, String Builder, and String Buffer.",
                 "String exists in a constant string pool, Builder and Buffer exist in stack", "String is used for a string, Buffer and Builder for arrays", "Ther's no difference",
                 "i don't know"));
@@ -83,27 +85,27 @@ public class QuizAppController {
         questionsData.setQuestions(list);
     }
 
-    @GetMapping("/")
+    @GetMapping("/java")
     public String home(Model model) {
         model.addAttribute("questionsData", questionsData.getQuestions());
-        return "quiz";
+        return "java";
     }
 
     @PostMapping("/process")
     public String process(@RequestParam("answers") Set<String> usersAnswers, Model model) {
-        if(usersAnswers == null) {
+        if (usersAnswers == null) {
             return "redirect:/";
         }
         System.out.println(usersAnswers);
-        if(usersAnswers.size() < 20) {
+        if (usersAnswers.size() < 20) {
             model.addAttribute("result", "You answered not enough!");
-        } else if(Calculate.calculate(questionsData.getRightAnswers(), usersAnswers)){
-             model.addAttribute("result", "You passed!");
+        } else if (Calculate.calculate(questionsData.getRightAnswers(), usersAnswers)) {
+            model.addAttribute("result", "You passed!");
         } else {
             model.addAttribute("result", "You didn't pass :(");
         }
 
-        return "some";
+        return "result";
     }
 
 }
