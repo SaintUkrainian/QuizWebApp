@@ -4,13 +4,11 @@ import java.util.Set;
 
 public class Calculate {
 
-    // getting the number of all wrong answers
+    // getting the number of all right answers
     public static double calculate(Set<String> rightAnswers, Set<String> usersAnswers) {
-        // removing all right answers
+        // removing all right wrong
         usersAnswers.removeIf(answer -> !rightAnswers.contains(answer));
-        System.out.println("---------------------");
-        System.out.println(usersAnswers);
-        
+
         return usersAnswers.size() * 100 / rightAnswers.size();
     }
 

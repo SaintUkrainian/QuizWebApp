@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,15 +41,9 @@ public class QuizAppController {
         quizes.addNewQuiz(new EnglishQuiz());
     }
 
-    @GetMapping("/Java")
-    public String javaQuiz(Model model) {
-        model.addAttribute("quiz", quizes.findQuizByName("Java"));
-        return "quiz";
-    }
-
-    @GetMapping("/English")
-    public String englishQuiz(Model model) {
-        model.addAttribute("quiz", quizes.findQuizByName("English"));
+    @GetMapping("/selected/{name}")
+    public String englishQuiz(@PathVariable String name ,Model model) {
+        model.addAttribute("quiz", quizes.findQuizByName(name));
         return "quiz";
     }
 

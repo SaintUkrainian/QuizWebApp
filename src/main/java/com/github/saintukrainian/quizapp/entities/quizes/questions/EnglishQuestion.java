@@ -1,6 +1,6 @@
 package com.github.saintukrainian.quizapp.entities.quizes.questions;
 
-public class JavaQuestion implements Question {
+public class EnglishQuestion implements Question {
 
     private String question;
     private String firstAnswer;
@@ -8,7 +8,7 @@ public class JavaQuestion implements Question {
     private String thirdAnswer;
     private String fourthAnswer;
 
-    public JavaQuestion(String question, String firstAnswer, String secondAnswer, String thirdAnswer,
+    public EnglishQuestion(String question, String firstAnswer, String secondAnswer, String thirdAnswer,
             String fourthAnswer) {
         this.question = question;
         this.firstAnswer = firstAnswer;

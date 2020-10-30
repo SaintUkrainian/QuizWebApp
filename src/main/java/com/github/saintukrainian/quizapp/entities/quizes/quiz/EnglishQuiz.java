@@ -8,7 +8,8 @@ import com.github.saintukrainian.quizapp.entities.quizes.questions.Question;
 public class EnglishQuiz implements Quiz {
 
     private String name;
-
+    private List<Question> questions;
+    private Set<String> rightAnswers;
 
     public EnglishQuiz() {
         name = "English";
@@ -21,14 +22,12 @@ public class EnglishQuiz implements Quiz {
 
     @Override
     public List<Question> getQuestions() {
-        
-        return null;
+        return questions;
     }
 
     @Override
     public Set<String> getRightAnswers() {
-        
-        return null;
+        return rightAnswers;
     }
-    
+
 }

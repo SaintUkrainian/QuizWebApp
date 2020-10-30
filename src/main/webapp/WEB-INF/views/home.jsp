@@ -29,7 +29,7 @@
            <!-- <li><a href="${pageContext.request.contextPath}/quiz/java">Java Basics Quiz</a></li> 
            <li><a href="${pageContext.request.contextPath}/quiz/english">English Basics Quiz</a></li> -->
            <c:forEach var="quiz" items="${quizes}">
-            <li><a href="${pageContext.request.contextPath}/quiz/${quiz.name}">${quiz.name} Basics Quiz</a></li>
+            <li><a href="${pageContext.request.contextPath}/quiz/selected/${quiz.name}">${quiz.name} Quiz</a></li>
            </c:forEach>
         </ul>
     </main>
