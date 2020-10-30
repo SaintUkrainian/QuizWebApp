@@ -1,7 +1,5 @@
 package com.github.saintukrainian.quizapp.controllers;
 
-import javax.annotation.PostConstruct;
-
 import com.github.saintukrainian.quizapp.entities.quizes.Quizes;
 import com.github.saintukrainian.quizapp.repository.ResultRepository;
 

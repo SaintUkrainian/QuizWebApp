@@ -22,13 +22,21 @@ public class Result {
     @Column(name = "student_name")
     private String studentName;
 
+    @Column(name="quiz_name")
+    private String quizName;
+
+    @Column(name="date")
+    private String date;
+
     public Result() {
     }
 
-    public Result(Integer id, double result, String studentName) {
+    public Result(Integer id, double result, String studentName, String quizName, String date) {
         this.id = id;
         this.result = result;
         this.studentName = studentName;
+        this.quizName = quizName;
+        this.date = date;
     }
 
     public Integer getId() {
@@ -43,6 +51,10 @@ public class Result {
         return studentName;
     }
 
+    public String getQuizName() {
+        return quizName;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -54,4 +66,16 @@ public class Result {
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
+
+    public void setQuizName(String quizName) {
+        this.quizName = quizName;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+    public String getDate() {
+        return date;
+    }
+    
 }

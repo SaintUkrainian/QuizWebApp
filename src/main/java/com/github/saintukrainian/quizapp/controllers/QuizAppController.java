@@ -1,5 +1,6 @@
 package com.github.saintukrainian.quizapp.controllers;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
@@ -59,7 +60,7 @@ public class QuizAppController {
     }
 
     @PostMapping("/process")
-    public String process(@RequestParam("answers") Set<String> usersAnswers, @RequestParam("name") String name,
+    public String process(@RequestParam("answers") Set<String> usersAnswers, @RequestParam("name") String quizName,
             Model model) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String userName;
@@ -68,9 +69,9 @@ public class QuizAppController {
         } else {
             userName = principal.toString();
         }
-        double result = Calculate.calculate(quizes.findQuizByName(name).getRightAnswers(), usersAnswers);
+        double result = Calculate.calculate(quizes.findQuizByName(quizName).getRightAnswers(), usersAnswers);
         model.addAttribute("result", result);
-        rep.save(new Result(0, result, userName));
+        rep.save(new Result(0, result, userName, quizName, new Date().toString()));
         return "result";
     }
 

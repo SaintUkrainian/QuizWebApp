@@ -15,7 +15,10 @@
     <div>Results:</div>
     <ul>
         <c:forEach var="result" items="${results}">
-            <li>${result.result}% / 100%</li>
+            <li style="display: flex;">
+                <h3>Date: ${result.date}</h3>
+                <h3 style="margin-left: 10px;"><span>${result.quizName}: </span>${result.result}% / 100%</h3>
+            </li>
         </c:forEach>
     </ul>
 </body>
