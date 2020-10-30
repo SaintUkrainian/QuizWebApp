@@ -14,12 +14,15 @@
 <body>
     <header>
         <div class="nav-bar">
-            <a href="${pageContext.request.contextPath}/profile">My Profile</a>
-            <div class="user-info">
-                <form:form method="POST" action="${pageContext.request.contextPath}/logout" class="security-form">
-                    <h3><security:authentication property="principal.username" /></h3>
-                    <input type="submit" value="Logout" id="logout-btn">
-                </form:form>
+            <div class="logo"><h1>Logo</h1></div>
+            <div class="user">
+                <a href="${pageContext.request.contextPath}/profile">My Profile</a>
+                <div class="user-info">
+                    <form:form method="POST" action="${pageContext.request.contextPath}/logout" class="security-form">
+                        <h3><security:authentication property="principal.username" /></h3>
+                        <input type="submit" value="Logout" id="logout-btn">
+                    </form:form>
+                </div>
             </div>
         </div>
     </header>

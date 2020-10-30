@@ -9,8 +9,19 @@
     background-color: salmon;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     height: 7vh;
+}
+
+
+.user {
+    display: flex;
+    align-items: center;
+
+}
+
+.logo {
+    margin: 10px;
 }
 
 .nav-bar a {

@@ -16,7 +16,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         UserBuilder users = User.withDefaultPasswordEncoder();
 
-        auth.inMemoryAuthentication().withUser(users.username("Denys_Matsenko").password("student").roles("STUDENT"));
+        auth.inMemoryAuthentication()
+                .withUser(users.username("Denys_Matsenko").password("student").roles("STUDENT"))
+                .withUser(users.username("Max_Basov").password("student").roles("STUDENT"));
     }
 
     @Override

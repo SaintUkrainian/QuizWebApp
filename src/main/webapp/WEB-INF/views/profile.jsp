@@ -1,5 +1,6 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,9 @@
     <h3><security:authentication property="principal.username" /></h3>
     <div>Results:</div>
     <ul>
-        <li>Res 1</li>
+        <c:forEach var="result" items="${results}">
+            <li>${result.result}% / 100%</li>
+        </c:forEach>
     </ul>
 </body>
 </html>
