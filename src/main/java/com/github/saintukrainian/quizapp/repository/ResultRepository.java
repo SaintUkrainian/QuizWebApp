@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ResultRepository extends JpaRepository<Result, Integer> {
-    public List<Result> findAllByStudentName(String studentName);
+    public List<Result> findAllByStudentNameOrderByIdDesc(String studentName);
 }

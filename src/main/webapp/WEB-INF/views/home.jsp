@@ -8,13 +8,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/home.css">
+    <link
+            rel="stylesheet"
+            href="${pageContext.request.contextPath}/styles/nav-bar.css"
+        />
     <title>Home Page</title>
 </head>
 
 <body>
     <header>
         <div class="nav-bar">
-            <div class="logo"><h1>Logo</h1></div>
+            <div class="logo"><h1 style="text-decoration: underline; text-decoration-color: white;">Home Page</h1></div>
             <div class="user">
                 <a href="${pageContext.request.contextPath}/profile">My Profile</a>
                 <div class="user-info">

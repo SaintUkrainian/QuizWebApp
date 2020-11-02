@@ -32,7 +32,7 @@ public class MainController {
     public String profile(Model model){
         Object pricipal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails) pricipal).getUsername();
-        model.addAttribute("results", rep.findAllByStudentName(username));
+        model.addAttribute("results", rep.findAllByStudentNameOrderByIdDesc(username));
         return "profile";
     }
 }
