@@ -74,5 +74,4 @@ public class QuizAppController {
         rep.save(new Result(0, result, userName, quizName, new Date().toString()));
         return "result";
     }
-
 }

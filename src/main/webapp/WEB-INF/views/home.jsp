@@ -20,6 +20,7 @@
         <div class="nav-bar">
             <div class="logo"><h1 style="text-decoration: underline; text-decoration-color: white;">Home Page</h1></div>
             <div class="user">
+                <a href="${pageContext.request.contextPath}/custom-quiz/">Custom Quizes</a>
                 <a href="${pageContext.request.contextPath}/profile">My Profile</a>
                 <div class="user-info">
                     <form:form method="POST" action="${pageContext.request.contextPath}/logout" class="security-form">
