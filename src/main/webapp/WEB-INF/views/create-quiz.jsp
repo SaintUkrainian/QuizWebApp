@@ -17,6 +17,7 @@
                 <h1 style="text-decoration: underline; text-decoration-color: white;">Custom Quizes</h1>
             </div>
             <div class="user">
+                <a href="${pageContext.request.contextPath}/custom-quiz/">Custom Quizes</a>
                 <a href="${pageContext.request.contextPath}/profile">My Profile</a>
                 <div class="user-info">
                     <form:form method="POST" action="${pageContext.request.contextPath}/logout" class="security-form">
@@ -31,8 +32,8 @@
     </header>
     <main>
         <form:form action="${pageContext.request.contextPath}/custom-quiz/add-quiz" method="POST">
-            <input type="text" name="quizName">
-            <input type="submit" name="Create">
+            <input type="text" name="quizName" placeholder="Quiz Name">
+            <input type="submit" value="Create">
         </form:form>
     </main>
 </body>

@@ -9,6 +9,7 @@ public class QuizCreator {
 
     private List<QuestionCreator> createdQuestions;
     private List<String> rightAnswers;
+
     private String quizName;
 
     public QuizCreator() {
@@ -30,6 +31,10 @@ public class QuizCreator {
             rightAnswers = new ArrayList<>();
         }
         return rightAnswers;
+    }
+
+    public void setCreatedQuestions(List<QuestionCreator> createdQuestions) {
+        this.createdQuestions = createdQuestions;
     }
 
     public String getQuizName() {

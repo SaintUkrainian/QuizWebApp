@@ -32,8 +32,13 @@
     <main>
         <form:form modelAttribute="question" action="${pageContext.request.contextPath}/custom-quiz/add-question">
             <input type="hidden" name="quizName" value="${question.quizName}">
-            <input type="text" name="question">
-            <input type="submit" name="Create">
+            <input type="text" name="question" placeholder="Question">
+            <input type="text" name="firstAnswer" placeholder="First Answer">
+            <input type="text" name="secondAnswer" placeholder="Second Answer">
+            <input type="text" name="thirdAnswer" placeholder="Third Answer">
+            <input type="text" name="fourthAnswer" placeholder="Fourth Answer">
+            <input type="text" name="rightAnswer" placeholder="Right Answer">
+            <input type="submit" name="Add Question">
         </form:form>
     </main>
 </body>

@@ -18,6 +18,7 @@
                 <h1 style="text-decoration: underline; text-decoration-color: white;">Custom Quizes</h1>
             </div>
             <div class="user">
+                <a href="${pageContext.request.contextPath}/custom-quiz/">Custom Quizes</a>
                 <a href="${pageContext.request.contextPath}/profile">My Profile</a>
                 <div class="user-info">
                     <form:form method="POST" action="${pageContext.request.contextPath}/logout" class="security-form">
@@ -31,6 +32,7 @@
         </div>
     </header>
     <main>
+        <h1>Custom Quizes</h1>
         <div style="display: flex;flex-direction: column;">
             <c:forEach var="quiz" items="${customQuizes}">
                 <a href="${pageContext.request.contextPath}/custom-quiz/selected/${quiz.quizName}">${quiz.quizName}</a>

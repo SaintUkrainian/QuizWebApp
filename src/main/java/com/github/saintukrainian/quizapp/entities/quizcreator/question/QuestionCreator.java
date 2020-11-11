@@ -1,15 +1,22 @@
 package com.github.saintukrainian.quizapp.entities.quizcreator.question;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Entity
 @Table(name = "question_creator")
 public class QuestionCreator {
+
 
     @Column(name = "quiz_name")
     private String quizName;
 
-    @Column(name = "question")
+    @Id
+    @Column(name="question")
     private String question;
 
     @Column(name = "first_answer")
@@ -29,8 +36,7 @@ public class QuestionCreator {
 
     public QuestionCreator() {}
 
-    public QuestionCreator(String quizName, String question, String firstAnswer, String secondAnswer,
-            String thirdAnswer, String fourthAnswer, String rightAnswer) {
+    public QuestionCreator(String quizName, String question, String firstAnswer, String secondAnswer, String thirdAnswer, String fourthAnswer, String rightAnswer) {
         this.quizName = quizName;
         this.question = question;
         this.firstAnswer = firstAnswer;
@@ -96,10 +102,11 @@ public class QuestionCreator {
         this.rightAnswer = rightAnswer;
     }
 
+
     @Override
     public String toString() {
         return "{" +
-            " quizName='" + getQuizName() + "'" +
+            "quizName='" + getQuizName() + "'" +
             ", question='" + getQuestion() + "'" +
             ", firstAnswer='" + getFirstAnswer() + "'" +
             ", secondAnswer='" + getSecondAnswer() + "'" +
@@ -108,4 +115,5 @@ public class QuestionCreator {
             ", rightAnswer='" + getRightAnswer() + "'" +
             "}";
     }
+    
 }
