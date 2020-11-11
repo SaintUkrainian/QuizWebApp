@@ -8,6 +8,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/nav-bar.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/custom-quizes.css" />
     <title>Custom Quizes</title>
 </head>
 
@@ -31,15 +32,17 @@
             </div>
         </div>
     </header>
-    <main>
-        <h1>Custom Quizes</h1>
-        <div style="display: flex;flex-direction: column;">
+    <main class="container">
+        <h1 style="color: salmon; padding: 10px;">Custom Quizes</h1>
+        <div class="custom-quizes">
             <c:forEach var="quiz" items="${customQuizes}">
-                <a href="${pageContext.request.contextPath}/custom-quiz/selected/${quiz.quizName}">${quiz.quizName}</a>
+                <a href="${pageContext.request.contextPath}/custom-quiz/selected/${quiz.quizName}" class="quiz-name">${quiz.quizName}</a>
             </c:forEach>
         </div>
 
-        <a href="${pageContext.request.contextPath}/custom-quiz/create">Create new Quiz</a>
+        <div class="link">
+            <a href="${pageContext.request.contextPath}/custom-quiz/create">Create new Quiz</a>
+        </div>
     </main>
 </body>
 
