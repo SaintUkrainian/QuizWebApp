@@ -54,7 +54,6 @@ public class CustomQuizController {
     @PostMapping("/add-quiz")
     public String addQuiz(@RequestParam("quizName") String quizName) {
         quizRep.save(new QuizName(0, quizName));
-        System.out.println(quizName);
         QuizCreator customQuiz = new QuizCreator(quizName);
         CreatedQuizes.getCreatedQuizes().add(customQuiz);
         return "redirect:/custom-quiz/";
@@ -70,7 +69,6 @@ public class CustomQuizController {
     @GetMapping("/question/{name}")
     public String question(@PathVariable String name, Model model) {
         QuestionCreator question = new QuestionCreator();
-        System.out.println(name);
         question.setQuizName(name);
         model.addAttribute("question", question);
         return "create-question";
@@ -78,10 +76,8 @@ public class CustomQuizController {
 
     @PostMapping("/add-question")
     public String addQuestion(@ModelAttribute("question") QuestionCreator question) {
-        System.out.println(question);
         CreatedQuizes.findByName(question.getQuizName()).getCreatedQuestions().add(question);
         // CreatedQuizes.findByName(question.getQuizName()).getCreatedQuestions().add(question);
-        System.out.println(question.getQuestion());
         questionRep.save(question);
         return "redirect:/custom-quiz/selected/" + question.getQuizName();
     }
@@ -98,11 +94,9 @@ public class CustomQuizController {
         Set<String> rightAnswers = CreatedQuizes.findByName(quizName).getCreatedQuestions().stream()
                 .map(QuestionCreator::getRightAnswer).collect(Collectors.toSet());
 
-        System.out.println(rightAnswers);
-        System.out.println(usersAnswers);
+        System.out.println("Right answers: " + rightAnswers);
+        System.out.println("User answers: " + usersAnswers);
         model.addAttribute("result", Calculate.calculate(rightAnswers, usersAnswers));
-
-
         return "result";
     }
 }

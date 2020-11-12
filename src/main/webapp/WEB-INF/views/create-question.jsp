@@ -7,6 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/nav-bar.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/create-question.css" />
     <title>Custom Quizes</title>
 </head>
 
@@ -30,15 +31,21 @@
         </div>
     </header>
     <main>
-        <form:form modelAttribute="question" action="${pageContext.request.contextPath}/custom-quiz/add-question">
+        <form:form class="question-form" modelAttribute="question" action="${pageContext.request.contextPath}/custom-quiz/add-question">
             <input type="hidden" name="quizName" value="${question.quizName}">
-            <input type="text" name="question" placeholder="Question">
-            <input type="text" name="firstAnswer" placeholder="First Answer">
-            <input type="text" name="secondAnswer" placeholder="Second Answer">
-            <input type="text" name="thirdAnswer" placeholder="Third Answer">
-            <input type="text" name="fourthAnswer" placeholder="Fourth Answer">
-            <input type="text" name="rightAnswer" placeholder="Right Answer">
-            <input type="submit" name="Add Question">
+            <div class="question-container">
+                <textarea type="text" name="question" placeholder="Question"></textarea>
+            </div>
+            <div class="answers-container">
+                <input class="answer-input" type="text" name="firstAnswer" placeholder="First Answer">
+                <input class="answer-input" type="text" name="secondAnswer" placeholder="Second Answer">
+                <input class="answer-input" type="text" name="thirdAnswer" placeholder="Third Answer">
+                <input class="answer-input" type="text" name="fourthAnswer" placeholder="Fourth Answer">
+            </div>
+            <div class="rightAnswer-container">
+                <input class="answer-input" type="text" name="rightAnswer" placeholder="Right Answer">
+            </div>
+            <input class="add-button answer-input" type="submit" name="Add Question">
         </form:form>
     </main>
 </body>
