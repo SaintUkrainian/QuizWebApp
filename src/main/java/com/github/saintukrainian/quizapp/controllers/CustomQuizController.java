@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
+import javax.validation.Valid;
 
 import com.github.saintukrainian.quizapp.entities.quizcreator.CreatedQuizes;
 import com.github.saintukrainian.quizapp.entities.quizcreator.QuizCreator;
@@ -13,9 +14,13 @@ import com.github.saintukrainian.quizapp.helper.Calculate;
 import com.github.saintukrainian.quizapp.repository.QuestionCreatorRepository;
 import com.github.saintukrainian.quizapp.repository.QuizNamesRepository;
 
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,6 +39,13 @@ public class CustomQuizController {
         this.questionRep = questionRep;
     }
 
+    @InitBinder
+    public void initBinder(WebDataBinder dataBinder) {
+        StringTrimmerEditor trimmerEditor = new StringTrimmerEditor(true);
+
+        dataBinder.registerCustomEditor(String.class, trimmerEditor); 
+    }
+
     @PostConstruct
     public void loadQuizes() {
         CreatedQuizes.setQuizNames(quizRep.findAll());
@@ -47,16 +59,21 @@ public class CustomQuizController {
     }
 
     @GetMapping("/create")
-    public String create() {
+    public String create(Model model) {
+        model.addAttribute("quiz", new QuizName());
         return "create-quiz";
     }
 
     @PostMapping("/add-quiz")
-    public String addQuiz(@RequestParam("quizName") String quizName) {
-        quizRep.save(new QuizName(0, quizName));
-        QuizCreator customQuiz = new QuizCreator(quizName);
-        CreatedQuizes.getCreatedQuizes().add(customQuiz);
-        return "redirect:/custom-quiz/";
+    public String addQuiz(@Valid @ModelAttribute("quiz") QuizName quizName, BindingResult result) {
+        if(result.hasErrors()) {
+            return "create-quiz";
+        } else {
+            quizRep.save(quizName);
+            QuizCreator customQuiz = new QuizCreator(quizName.getQuizName());
+            CreatedQuizes.getCreatedQuizes().add(customQuiz);
+            return "redirect:/custom-quiz/";
+        }
     }
 
     @GetMapping("/selected/{name}")
@@ -75,11 +92,15 @@ public class CustomQuizController {
     }
 
     @PostMapping("/add-question")
-    public String addQuestion(@ModelAttribute("question") QuestionCreator question) {
-        CreatedQuizes.findByName(question.getQuizName()).getCreatedQuestions().add(question);
-        // CreatedQuizes.findByName(question.getQuizName()).getCreatedQuestions().add(question);
-        questionRep.save(question);
-        return "redirect:/custom-quiz/selected/" + question.getQuizName();
+    public String addQuestion(@Valid @ModelAttribute("question") QuestionCreator question, BindingResult result){
+        if(result.hasErrors()) {
+            return "create-question";
+        } else {
+            CreatedQuizes.findByName(question.getQuizName()).getCreatedQuestions().add(question);
+            questionRep.save(question);
+            return "redirect:/custom-quiz/selected/" + question.getQuizName();
+        }
+        
     }
 
     @GetMapping("/play/{quizName}")
@@ -99,4 +120,5 @@ public class CustomQuizController {
         model.addAttribute("result", Calculate.calculate(rightAnswers, usersAnswers));
         return "result";
     }
+
 }

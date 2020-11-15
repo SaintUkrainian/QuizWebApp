@@ -1,0 +1,35 @@
+.create-quiz-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.input {
+    margin: auto;
+    background-color: rgb(202, 143, 136);
+    border-color: red;
+    font-size: 40px;
+    outline: none;
+
+}
+
+.input:focus {
+    background-color: rgb(197, 181, 179);
+}
+
+.add-button {
+    background-color: rgb(202, 143, 136);
+    border-color: red;
+    font-size: 40px;
+    width: 180px;
+    justify-content: center;
+    padding: 0;
+    color:black;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.add-button:hover{
+    background-color: salmon;
+}

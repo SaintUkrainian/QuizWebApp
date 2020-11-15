@@ -7,7 +7,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/nav-bar.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/create-quiz.css" />
     <title>Custom Quizes</title>
+    <style>
+        .error {
+            margin: auto;
+            color: red;
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,9 +40,11 @@
         </div>
     </header>
     <main>
-        <form:form action="${pageContext.request.contextPath}/custom-quiz/add-quiz" method="POST">
-            <input type="text" name="quizName" placeholder="Quiz Name">
-            <input type="submit" value="Create">
+        <form:form class="create-quiz-form" modelAttribute="quiz" action="${pageContext.request.contextPath}/custom-quiz/add-quiz" method="POST">
+            <input type="hidden" name="id" />
+            <form:errors path="quizName" cssClass="error" />
+            <input class="input" type="text" name="quizName" placeholder="Quiz Name">
+            <input class="add-button" type="submit" value="Create">
         </form:form>
     </main>
 </body>

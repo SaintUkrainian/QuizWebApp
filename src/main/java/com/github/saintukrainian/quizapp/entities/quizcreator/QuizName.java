@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="quiz_names")
@@ -16,6 +19,8 @@ public class QuizName {
     @Column(name="id")
     private Integer id;
 
+    
+    @NotNull(message = "Should not be null!")
     @Column(name="quiz_name")
     private String quizName;
 

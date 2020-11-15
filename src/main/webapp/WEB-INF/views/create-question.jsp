@@ -34,15 +34,21 @@
         <form:form class="question-form" modelAttribute="question" action="${pageContext.request.contextPath}/custom-quiz/add-question">
             <input type="hidden" name="quizName" value="${question.quizName}">
             <div class="question-container">
+                <form:errors path="question" cssClass="error" />
                 <textarea type="text" name="question" placeholder="Question"></textarea>
             </div>
             <div class="answers-container">
+                <form:errors path="firstAnswer" cssClass="error" />
                 <input class="answer-input" type="text" name="firstAnswer" placeholder="First Answer">
+                <form:errors path="secondAnswer" cssClass="error" />
                 <input class="answer-input" type="text" name="secondAnswer" placeholder="Second Answer">
+                <form:errors path="thirdAnswer" cssClass="error" />
                 <input class="answer-input" type="text" name="thirdAnswer" placeholder="Third Answer">
+                <form:errors path="fourthAnswer" cssClass="error" />
                 <input class="answer-input" type="text" name="fourthAnswer" placeholder="Fourth Answer">
             </div>
             <div class="rightAnswer-container">
+                <form:errors path="rightAnswer" cssClass="error" />
                 <input class="answer-input" type="text" name="rightAnswer" placeholder="Right Answer">
             </div>
             <input class="add-button answer-input" type="submit" name="Add Question">

@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "question_creator")
@@ -13,22 +14,28 @@ public class QuestionCreator {
     @Column(name = "quiz_name")
     private String quizName;
 
+    @NotNull(message = "Should not be null!")
     @Id
     @Column(name="question")
     private String question;
 
+    @NotNull(message = "Should not be null!")
     @Column(name = "first_answer")
     private String firstAnswer;
-
+    
+    @NotNull(message = "Should not be null!")
     @Column(name = "second_answer")
     private String secondAnswer;
 
+    @NotNull(message = "Should not be null!")
     @Column(name = "third_answer")
     private String thirdAnswer;
 
+    @NotNull(message = "Should not be null!")
     @Column(name = "fourth_answer")
     private String fourthAnswer;
 
+    @NotNull(message = "Should not be null!")
     @Column(name = "right_answer")
     private String rightAnswer;
 
