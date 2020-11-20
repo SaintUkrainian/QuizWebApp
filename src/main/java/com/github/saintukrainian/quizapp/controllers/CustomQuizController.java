@@ -114,9 +114,6 @@ public class CustomQuizController {
     public String results(@PathVariable String quizName, @RequestParam("answers") Set<String> usersAnswers, Model model) {
         Set<String> rightAnswers = CreatedQuizes.findByName(quizName).getCreatedQuestions().stream()
                 .map(QuestionCreator::getRightAnswer).collect(Collectors.toSet());
-
-        System.out.println("Right answers: " + rightAnswers);
-        System.out.println("User answers: " + usersAnswers);
         model.addAttribute("result", Calculate.calculate(rightAnswers, usersAnswers));
         return "result";
     }

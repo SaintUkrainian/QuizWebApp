@@ -13,18 +13,21 @@ main {
 }
 
 .quiz-items li a {
-    color: black;
+    margin: auto;
+    font-size: 30px;
     text-decoration: none;
-    font-size: 20px;
+    color: red;
+    border-bottom: 2px solid salmon;
+    padding: 10px 15px;
 }
 
 .quiz-items li a:hover {
-    text-decoration: underline;
+    background-color: rgba(250, 128, 114, 0.295);
 }
 
 
 
 .quiz-items li {
     list-style: none;
-    margin: 10px 20px;
+    margin: 15px 20px;
 }

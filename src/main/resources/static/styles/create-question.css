@@ -66,3 +66,10 @@ textarea:focus {
 .add-button:hover{
     background-color: salmon;
 }
+
+.answer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
