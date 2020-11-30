@@ -16,13 +16,13 @@ public class QuestionCreator {
 
     @NotNull(message = "Should not be null!")
     @Id
-    @Column(name="question")
+    @Column(name = "question")
     private String question;
 
     @NotNull(message = "Should not be null!")
     @Column(name = "first_answer")
     private String firstAnswer;
-    
+
     @NotNull(message = "Should not be null!")
     @Column(name = "second_answer")
     private String secondAnswer;
@@ -39,9 +39,11 @@ public class QuestionCreator {
     @Column(name = "right_answer")
     private String rightAnswer;
 
-    public QuestionCreator() {}
+    public QuestionCreator() {
+    }
 
-    public QuestionCreator(String quizName, String question, String firstAnswer, String secondAnswer, String thirdAnswer, String fourthAnswer, String rightAnswer) {
+    public QuestionCreator(String quizName, String question, String firstAnswer, String secondAnswer,
+                           String thirdAnswer, String fourthAnswer, String rightAnswer) {
         this.quizName = quizName;
         this.question = question;
         this.firstAnswer = firstAnswer;
@@ -111,14 +113,14 @@ public class QuestionCreator {
     @Override
     public String toString() {
         return "{" +
-            "quizName='" + getQuizName() + "'" +
-            ", question='" + getQuestion() + "'" +
-            ", firstAnswer='" + getFirstAnswer() + "'" +
-            ", secondAnswer='" + getSecondAnswer() + "'" +
-            ", thirdAnswer='" + getThirdAnswer() + "'" +
-            ", fourthAnswer='" + getFourthAnswer() + "'" +
-            ", rightAnswer='" + getRightAnswer() + "'" +
-            "}";
+                "quizName='" + getQuizName() + "'" +
+                ", question='" + getQuestion() + "'" +
+                ", firstAnswer='" + getFirstAnswer() + "'" +
+                ", secondAnswer='" + getSecondAnswer() + "'" +
+                ", thirdAnswer='" + getThirdAnswer() + "'" +
+                ", fourthAnswer='" + getFourthAnswer() + "'" +
+                ", rightAnswer='" + getRightAnswer() + "'" +
+                "}";
     }
-    
+
 }

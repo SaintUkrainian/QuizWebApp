@@ -20,14 +20,14 @@ public class QuizCreator {
     }
 
     public List<QuestionCreator> getCreatedQuestions() {
-        if(createdQuestions == null) {
+        if (createdQuestions == null) {
             createdQuestions = new ArrayList<>();
         }
         return createdQuestions;
     }
 
     public List<String> getRightAnswers() {
-        if(rightAnswers == null) {
+        if (rightAnswers == null) {
             rightAnswers = new ArrayList<>();
         }
         return rightAnswers;
@@ -45,5 +45,5 @@ public class QuizCreator {
         this.quizName = quizName;
     }
 
-    
+
 }

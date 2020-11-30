@@ -40,33 +40,33 @@
     </header>
     <main>
         <form:form class="question-form" modelAttribute="question"
-            action="${pageContext.request.contextPath}/custom-quiz/add-question">
+            action="${pageContext.request.contextPath}/custom-quiz/add-question" method="POST">
             <input type="hidden" name="quizName" value="${question.quizName}">
             <div class="question-container">
                 <form:errors path="question" cssClass="error" />
-                <textarea type="text" name="question" placeholder="Question"></textarea>
+                <textarea type="text" name="question" placeholder="Question">${question.question}</textarea>
             </div>
             <div class="answers-container">
                 <div class="answer-container">
                     <form:errors path="firstAnswer" cssClass="error" />
-                    <input class="answer-input" type="text" name="firstAnswer" placeholder="First Answer">
+                    <input class="answer-input" type="text" name="firstAnswer" placeholder="First Answer" value="${question.firstAnswer}">
                 </div>
                 <div class="answer-container">
                     <form:errors path="secondAnswer" cssClass="error" />
-                    <input class="answer-input" type="text" name="secondAnswer" placeholder="Second Answer">
+                    <input class="answer-input" type="text" name="secondAnswer" placeholder="Second Answer" value="${question.secondAnswer}">
                 </div>
                 <div class="answer-container">
                     <form:errors path="thirdAnswer" cssClass="error" />
-                    <input class="answer-input" type="text" name="thirdAnswer" placeholder="Third Answer">
+                    <input class="answer-input" type="text" name="thirdAnswer" placeholder="Third Answer" value="${question.thirdAnswer}">
                 </div>
                 <div class="answer-container">
                     <form:errors path="fourthAnswer" cssClass="error" />
-                    <input class="answer-input" type="text" name="fourthAnswer" placeholder="Fourth Answer">
+                    <input class="answer-input" type="text" name="fourthAnswer" placeholder="Fourth Answer" value="${question.fourthAnswer}">
                 </div>
             </div>
             <div class="rightAnswer-container answer-container">
                 <form:errors path="rightAnswer" cssClass="error" />
-                <input class="answer-input" type="text" name="rightAnswer" placeholder="Right Answer">
+                <input class="answer-input" type="text" name="rightAnswer" placeholder="Right Answer" value="${question.rightAnswer}">
             </div>
             <input class="add-button answer-input" type="submit" name="Add Question">
         </form:form>
